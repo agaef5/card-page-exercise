@@ -15,7 +15,7 @@ function Form({ formData, onFormChange, onFormSubmit }) {
         required
       />
 
-      <label htmlFor="cardNumber">Cardh Number</label>
+      <label htmlFor="cardNumber">Card Number</label>
       <input
         value={formData.cardNumber}
         onChange={(e) => onFormChange("cardNumber", e.target.value)}
@@ -28,37 +28,41 @@ function Form({ formData, onFormChange, onFormSubmit }) {
         required
       />
 
-      <label htmlFor="expDate">Exp. date (mm/yy)</label>
-      <input
-        value={formData.expDateM}
-        onChange={(e) => onFormChange("expDateM", e.target.value)}
-        pattern="[0-9]{2}"
-        inputMode="numeric"
-        maxLength="2"
-        placeholder="MM"
-        required
-      />
-      <input
-        value={formData.expDateY}
-        onChange={(e) => onFormChange("expDateY", e.target.value)}
-        pattern="[0-9]{2}"
-        inputMode="numeric"
-        maxLength="2"
-        placeholder="YY"
-        required
-      />
+      <div>
+        <label htmlFor="expDate">Exp. date (mm/yy) </label>
+        <div>
+          <input
+            value={formData.expDateM}
+            onChange={(e) => onFormChange("expDateM", e.target.value)}
+            pattern="[0-9]{2}"
+            inputMode="numeric"
+            maxLength="2"
+            placeholder="MM"
+            required
+          />
+          <input
+            value={formData.expDateY}
+            onChange={(e) => onFormChange("expDateY", e.target.value)}
+            pattern="[0-9]{2}"
+            inputMode="numeric"
+            maxLength="2"
+            placeholder="YY"
+            required
+          />
+        </div>
 
-      <label htmlFor="cvcNumber">CVC</label>
-      <input
-        value={formData.cvc}
-        onChange={(e) => onFormChange("cvc", e.target.value)}
-        pattern="[0-9]{3}"
-        title="Must contain 3 numbers."
-        inputMode="numeric"
-        maxLength="3"
-        placeholder="e.g. 123"
-        required
-      />
+        <label htmlFor="cvcNumber">CVC </label>
+        <input
+          value={formData.cvc}
+          onChange={(e) => onFormChange("cvc", e.target.value)}
+          pattern="[0-9]{3}"
+          title="Must contain 3 numbers."
+          inputMode="numeric"
+          maxLength="3"
+          placeholder="e.g. 123"
+          required
+        />
+      </div>
 
       <button type="submit">Confirm</button>
     </form>
