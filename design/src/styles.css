@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+:root {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+
+  --white: hsl(0, 0%, 100%);
+  --red: hsl(0, 100%, 66%);
+  --light-gray-violet: hsl(270, 3%, 87%);
+  --dark-gray-violet: hsl(279, 6%, 55%);
+  --dark-violet: hsl(278, 68%, 11%);
+  --active-border-gradient: linear-gradient(
+    to right,
+    hsl(249, 99%, 64%),
+    hsl(278, 94%, 30%)
+  );
+}
+
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-content: center;
+  margin: 0;
+  padding: 5rem;
+  height: calc(100vh - 10rem);
+  background-image: url("/images/bg-main-desktop.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
+
+.cards {
+  min-width: 40vw;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+.card {
+  height: 14rem;
+  width: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  position: relative;
+}
+.card-front {
+  display: grid;
+  grid-template-areas:
+    "img img img"
+    "card-number card-number card-number"
+    "name . date";
+  color: var(--white);
+  background-image: url("/images/bg-card-front.png");
+}
+.card-back {
+  margin-left: 7rem;
+  background-image: url("/images/bg-card-back.png");
+}
+
+input {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  color: var(--dark-violet);
+  height: 1.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--light-gray-violet);
+  border-radius: 0.5rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--dark-gray-violet);
+}
+
+input:focus:invalid {
+  border-color: red;
+}
+
+::placeholder {
+  color: var(--light-gray-violet);
+  opacity: 1; /* Firefox */
+}

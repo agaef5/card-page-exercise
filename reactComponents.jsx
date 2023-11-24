@@ -22,7 +22,8 @@ function Form({ formData, onFormChange, onFormSubmit }) {
         pattern="[0-9]{16}"
         title="Must contains 16 numbers."
         id="cardNumber"
-        type="number"
+        inputMode="numeric"
+        maxLength="16"
         placeholder="e.g. 1234 5678 9123 0000"
         required
       />
@@ -32,7 +33,8 @@ function Form({ formData, onFormChange, onFormSubmit }) {
         value={formData.expDateM}
         onChange={(e) => onFormChange("expDateM", e.target.value)}
         pattern="[0-9]{2}"
-        type="number"
+        inputMode="numeric"
+        maxLength="2"
         placeholder="MM"
         required
       />
@@ -40,7 +42,8 @@ function Form({ formData, onFormChange, onFormSubmit }) {
         value={formData.expDateY}
         onChange={(e) => onFormChange("expDateY", e.target.value)}
         pattern="[0-9]{2}"
-        type="number"
+        inputMode="numeric"
+        maxLength="2"
         placeholder="YY"
         required
       />
@@ -50,8 +53,9 @@ function Form({ formData, onFormChange, onFormSubmit }) {
         value={formData.cvc}
         onChange={(e) => onFormChange("cvc", e.target.value)}
         pattern="[0-9]{3}"
-        title="Must contains 3 numbers."
-        type="number"
+        title="Must contain 3 numbers."
+        inputMode="numeric"
+        maxLength="3"
         placeholder="e.g. 123"
         required
       />
@@ -93,36 +97,50 @@ function App() {
   }
 
   return (
-    <>
+    <div className="container">
       <div className="cards">
-        <div className="card-front">
-          <p>
+        <div className="card card-front">
+          <img src="/images/card-logo.svg" />
+          <p className="card-number">
             {formData.cardNumber !== ""
               ? formData.cardNumber
               : "0000 0000 0000 0000"}
           </p>
-          <p>{formData.name !== "" ? formData.name : "Jane Appleseed"}</p>
-          <p>
+          <p className="name">
+            {formData.name !== "" ? formData.name : "Jane Appleseed"}
+          </p>
+          <p className="date">
             {formData.expDateM !== "" ? formData.expDateM : "00"}/
             {formData.expDateY !== "" ? formData.expDateY : "00"}
           </p>
         </div>
 
-        <div className="card-back">
-          <p>{formData.cvc}</p>
+        <div className="card card-back">
+          <p>{formData.cvc !== "" ? formData.cvc : "000"}</p>
         </div>
       </div>
 
-      {formSubmitted ? (
-        <Confirmation onFormSubmit={handleFormSubmit} />
-      ) : (
-        <Form
-          formData={formData}
-          onFormChange={handleFormChange}
-          onFormSubmit={handleFormSubmit}
-        />
-      )}
-    </>
+      <div>
+        {formSubmitted ? (
+          <Confirmation onFormSubmit={handleFormSubmit} />
+        ) : (
+          <Form
+            formData={formData}
+            onFormChange={handleFormChange}
+            onFormSubmit={handleFormSubmit}
+          />
+        )}
+
+        <div class="attribution">
+          {" "}
+          Challenge by{" "}
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+            Frontend Mentor
+          </a>
+          . Coded by <a href="#">Aga</a>.
+        </div>
+      </div>
+    </div>
   );
 }
 
