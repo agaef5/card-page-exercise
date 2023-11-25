@@ -29,32 +29,37 @@ function Form({ formData, onFormChange, onFormSubmit }) {
       />
 
       <div>
-        <label htmlFor="expDate">Exp. date (mm/yy) </label>
-        <div>
-          <input
-            value={formData.expDateM}
-            onChange={(e) => onFormChange("expDateM", e.target.value)}
-            pattern="[0-9]{2}"
-            inputMode="numeric"
-            maxLength="2"
-            placeholder="MM"
-            required
-          />
-          <input
-            value={formData.expDateY}
-            onChange={(e) => onFormChange("expDateY", e.target.value)}
-            pattern="[0-9]{2}"
-            inputMode="numeric"
-            maxLength="2"
-            placeholder="YY"
-            required
-          />
-        </div>
+        <label id="exp-date" htmlFor="expDate">
+          Exp. date (mm/yy){" "}
+        </label>
+        <input
+          value={formData.expDateM}
+          onChange={(e) => onFormChange("expDateM", e.target.value)}
+          id="exp-date-M"
+          pattern="[0-9]{2}"
+          inputMode="numeric"
+          maxLength="2"
+          placeholder="MM"
+          required
+        />
+        <input
+          value={formData.expDateY}
+          onChange={(e) => onFormChange("expDateY", e.target.value)}
+          id="exp-date-Y"
+          pattern="[0-9]{2}"
+          inputMode="numeric"
+          maxLength="2"
+          placeholder="YY"
+          required
+        />
 
-        <label htmlFor="cvcNumber">CVC </label>
+        <label id="cvc-label" htmlFor="cvcNumber">
+          CVC{" "}
+        </label>
         <input
           value={formData.cvc}
           onChange={(e) => onFormChange("cvc", e.target.value)}
+          id="cvc-number"
           pattern="[0-9]{3}"
           title="Must contain 3 numbers."
           inputMode="numeric"
@@ -71,12 +76,12 @@ function Form({ formData, onFormChange, onFormSubmit }) {
 
 function Confirmation({ onFormSubmit }) {
   return (
-    <section>
-      <img src="" alt="" />
+    <div class="confirmation">
+      <img src="/images/icon-complete.svg" alt="" />
       <h1>Thank You!</h1>
       <p>We've added your card details</p>
       <button onClick={onFormSubmit}>Continue</button>
-    </section>
+    </div>
   );
 }
 
@@ -124,7 +129,7 @@ function App() {
         </div>
       </div>
 
-      <div>
+      <section className="content">
         {formSubmitted ? (
           <Confirmation onFormSubmit={handleFormSubmit} />
         ) : (
@@ -141,9 +146,9 @@ function App() {
           <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
             Frontend Mentor
           </a>
-          . Coded by <a href="#">Aga</a>.
+          . Coded by <a href="https://github.com/agaef5">Aga</a>.
         </div>
-      </div>
+      </section>
     </div>
   );
 }
