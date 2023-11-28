@@ -1,6 +1,8 @@
 // reactComponents.jsx
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
+import FrontCardIcon from "./images/card-logo.svg";
+import ConfirmationIcon from "./images/icon-complete.svg";
 
 function Form({ formData, onFormChange, onFormSubmit }) {
   return (
@@ -77,7 +79,7 @@ function Form({ formData, onFormChange, onFormSubmit }) {
 function Confirmation({ onFormSubmit }) {
   return (
     <div class="confirmation">
-      <img src="/images/icon-complete.svg" alt="" />
+      <img src={ConfirmationIcon} alt="" />
       <h1>Thank You!</h1>
       <p>We've added your card details</p>
       <button onClick={onFormSubmit}>Continue</button>
@@ -109,7 +111,7 @@ function App() {
     <div className="container">
       <div className="cards">
         <div className="card card-front">
-          <img src="/images/card-logo.svg" />
+          <img src={FrontCardIcon} />
           <p className="card-number">
             {formData.cardNumber !== ""
               ? formData.cardNumber
