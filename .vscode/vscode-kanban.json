@@ -1,0 +1,16 @@
+{
+  "todo": [
+    {
+      "assignedTo": {
+        "name": "Aga Furgalska"
+      },
+      "creation_time": "2023-12-01T18:46:06.307Z",
+      "id": "1",
+      "references": [],
+      "title": "set up authentication"
+    }
+  ],
+  "in-progress": [],
+  "testing": [],
+  "done": []
+}
